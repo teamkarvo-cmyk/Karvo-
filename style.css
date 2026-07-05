@@ -402,3 +402,59 @@ nav a:hover{
     color:#FFD700;
     font-weight:bold;
 }
+/* FOOTER */
+
+.footer{
+    background:#111;
+    padding:60px 8% 20px;
+    border-top:1px solid #2b2b2b;
+    margin-top:80px;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-logo h2{
+    color:#FFD700;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.footer-logo p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+.footer-links h3,
+.footer-contact h3{
+    color:#FFD700;
+    margin-bottom:15px;
+}
+
+.footer-links a{
+    display:block;
+    color:#ccc;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#FFD700;
+}
+
+.footer-contact p{
+    color:#ccc;
+    margin-bottom:10px;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid #2b2b2b;
+    color:#888;
+}
