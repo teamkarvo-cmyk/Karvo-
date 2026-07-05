@@ -178,3 +178,12 @@ nav a:hover{
     cursor:pointer;
     font-weight:bold;
 }
+.workers{
+    padding:80px 8%;
+}
+
+.workers h2{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+}
