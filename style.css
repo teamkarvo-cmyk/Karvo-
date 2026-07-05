@@ -352,3 +352,53 @@ nav a:hover{
     color:#cfcfcf;
     line-height:1.6;
 }
+/* CUSTOMER REVIEWS */
+
+.reviews{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.reviews h2{
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.review-card{
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:25px;
+    text-align:left;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.review-card:hover{
+    transform:translateY(-8px);
+    border-color:#FFD700;
+    box-shadow:0 10px 25px rgba(255,215,0,.15);
+}
+
+.review-card h3{
+    color:#FFD700;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.review-card p{
+    color:#ddd;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+.review-card span{
+    color:#FFD700;
+    font-weight:bold;
+}
