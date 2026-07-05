@@ -137,3 +137,44 @@ nav a:hover{
     background:#ffffff;
     transform:scale(1.05);
 }
+.worker-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px 8%;
+}
+
+.card{
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#FFD700;
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#cfcfcf;
+    margin-bottom:18px;
+}
+
+.card button{
+    background:#FFD700;
+    color:#111;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+}
