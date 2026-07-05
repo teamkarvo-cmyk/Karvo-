@@ -120,3 +120,20 @@ nav a:hover{
     color:#000;
     transform:translateY(-5px);
 }
+.hero-btn{
+    display:inline-block;
+    margin-top:30px;
+    background:#FFD700;
+    color:#111;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#ffffff;
+    transform:scale(1.05);
+}
