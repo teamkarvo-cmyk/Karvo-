@@ -458,3 +458,63 @@ nav a:hover{
     border-top:1px solid #2b2b2b;
     color:#888;
 }
+/* WORKER PROFILE */
+
+.worker-profile{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.profile-card{
+    width:380px;
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    transition:.3s;
+}
+
+.profile-card:hover{
+    transform:translateY(-8px);
+    border-color:#FFD700;
+}
+
+.profile-img{
+    font-size:80px;
+    margin-bottom:20px;
+}
+
+.profile-card h2{
+    color:#FFD700;
+    margin-bottom:15px;
+}
+
+.profile-card p{
+    color:#ddd;
+    margin:10px 0;
+}
+
+.rating{
+    color:#FFD700;
+    font-weight:bold;
+}
+
+.call-btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#FFD700;
+    color:#111;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.call-btn:hover{
+    background:#fff;
+}
