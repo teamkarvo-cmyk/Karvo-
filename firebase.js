@@ -75,8 +75,8 @@ async function loadWorkers() {
     workerGrid.innerHTML += `
       <div class="card">
         <h3>👷 ${worker.category}</h3>
-        <p>⭐ ${worker.rating} Rating</p>
-        <p>📍 ${worker.city}</p>
+        <p>⭐ ${worker.Rating || worker.rating} Rating</p>
+<p>📍 ${worker.City || worker.city}</p>
         <p>✔ Verified</p>
 
         <div class="card-buttons">
