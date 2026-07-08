@@ -65,6 +65,7 @@ if (workerGrid) {
 }
 
 async function loadWorkers() {
+  console.log("Loading workers...");
   const querySnapshot = await getDocs(collection(db, "Workers"));
 
   workerGrid.innerHTML = "";
@@ -72,7 +73,8 @@ async function loadWorkers() {
   querySnapshot.forEach((doc) => {
     const worker = doc.data();
     console.log(worker);
-
+console.log(doc.id);
+console.log(worker);
     workerGrid.innerHTML += `
       <div class="card">
         <h3>👷 ${worker.category}</h3>
