@@ -81,6 +81,7 @@ async function loadWorkers() {
           <p>⭐ ${worker.rating}</p>
           <p>📍 ${worker.City}</p>
           <p>✔ Verified</p>
+          <h3>${worker.test}</h3>
 
           <div class="card-buttons">
             <a href="worker.html" class="view-btn">View Profile</a>
