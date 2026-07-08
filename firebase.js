@@ -66,29 +66,30 @@ if (workerGrid) {
 }
 
 async function loadWorkers() {
-  console.log("Loading workers...");
-  const querySnapshot = await getDocs(collection(db, "Workers"));
-  console.log(querySnapshot.size);
+  try {
+    const querySnapshot = await getDocs(collection(db, "Workers"));
 
-  workerGrid.innerHTML = "";
+    workerGrid.innerHTML = "";
 
-  querySnapshot.forEach((doc) => {
-    const worker = doc.data();
-    console.log(worker);
-console.log(doc.id);
-console.log(worker);
-    workerGrid.innerHTML += `
-      <div class="card">
-        <h3>👷 ${worker.category}</h3>
-        <p>⭐ ${worker.Rating || worker.rating} Rating</p>
-<p>📍 ${worker.City || worker.city}</p>
-        <p>✔ Verified</p>
+    querySnapshot.forEach((doc) => {
+      const worker = doc.data();
 
-        <div class="card-buttons">
-          <a href="worker.html" class="view-btn">View Profile</a>
-          <button>Call</button>
+      workerGrid.innerHTML += `
+        <div class="card">
+          <h3>👷 ${worker.category}</h3>
+          <p>⭐ ${worker.rating}</p>
+          <p>📍 ${worker.City}</p>
+          <p>✔ Verified</p>
+
+          <div class="card-buttons">
+            <a href="worker.html" class="view-btn">View Profile</a>
+            <button>Call</button>
+          </div>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  } catch (error) {
+    alert(error.message);
+    console.log(error);
+  }
 }
