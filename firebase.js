@@ -4,7 +4,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCbKuhaoqCMrKWbzsGT9Vb3EjFdFjjbyEw",
   authDomain: "karvo-86279.firebaseapp.com",
@@ -16,7 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const db = getFirestore(app);
 // SIGNUP
 const signupBtn = document.getElementById("signupBtn");
 
@@ -52,5 +56,34 @@ if (loginBtn) {
       .catch((error) => {
         alert(error.message);
       });
+  });
+}
+const workerGrid = document.getElementById("workerGrid");
+
+if (workerGrid) {
+  loadWorkers();
+}
+
+async function loadWorkers() {
+  const querySnapshot = await getDocs(collection(db, "workers"));
+
+  workerGrid.innerHTML = "";
+
+  querySnapshot.forEach((doc) => {
+    const worker = doc.data();
+
+    workerGrid.innerHTML += `
+      <div class="card">
+        <h3>👷 ${worker.category}</h3>
+        <p>⭐ ${worker.rating} Rating</p>
+        <p>📍 ${worker.city}</p>
+        <p>✔ Verified</p>
+
+        <div class="card-buttons">
+          <a href="worker.html" class="view-btn">View Profile</a>
+          <button>Call</button>
+        </div>
+      </div>
+    `;
   });
 }
