@@ -73,6 +73,7 @@ async function loadWorkers() {
 
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
+      alert(JSON.stringify(worker));
 
       workerGrid.innerHTML += `
         <div class="card">
