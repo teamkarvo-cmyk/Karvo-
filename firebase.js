@@ -61,12 +61,14 @@ if (loginBtn) {
 const workerGrid = document.getElementById("workerGrid");
 
 if (workerGrid) {
+  console.log("loadWorkers started");
   loadWorkers();
 }
 
 async function loadWorkers() {
   console.log("Loading workers...");
   const querySnapshot = await getDocs(collection(db, "Workers"));
+  console.log(querySnapshot.size);
 
   workerGrid.innerHTML = "";
 
