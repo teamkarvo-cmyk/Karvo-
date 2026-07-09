@@ -67,8 +67,7 @@ if (workerGrid) {
 
 async function loadWorkers() {
   try {
-    const querySnapshot = await getDocs(collection(db, "Workers"));
-
+  const querySnapshot = await getDocs(collection(db, "workers"));
     workerGrid.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
