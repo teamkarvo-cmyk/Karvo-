@@ -69,7 +69,8 @@ async function loadWorkers() {
   try {
   const querySnapshot = await getDocs(collection(db, "workers"));
     workerGrid.innerHTML = "";
-
+alert("Documents: " + querySnapshot.size);
+console.log(querySnapshot.size);
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
     
