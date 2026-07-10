@@ -76,7 +76,7 @@ console.log(querySnapshot.size);
       alert(JSON.stringify(worker));
     
 
-      workerGrid.innerHTML += `
+      const card = `
 <div class="card">
   <h3>👷 ${worker.category}</h3>
   <p>⭐ ${worker.rating}</p>
