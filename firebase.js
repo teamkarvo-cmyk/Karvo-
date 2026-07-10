@@ -72,7 +72,7 @@ async function loadWorkers() {
 
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
-      alert(JSON.stringify(worker));
+    
 
       const card = `
 <div class="card">
@@ -80,6 +80,11 @@ async function loadWorkers() {
   <p>⭐ ${worker.rating}</p>
   <p>📍 ${worker.City}</p>
   <p>✔ Verified</p>
+
+  <div class="card-buttons">
+    <a href="worker.html" class="view-btn">View Profile</a>
+    <button>Call</button>
+  </div>
 </div>
 `;
 
@@ -87,12 +92,7 @@ console.log(card);
 
 workerGrid.innerHTML += card;
 
-          <div class="card-buttons">
-            <a href="worker.html" class="view-btn">View Profile</a>
-            <button>Call</button>
-          </div>
-        </div>
-      `;
+        
     });
   } catch (error) {
     alert(error.message);
