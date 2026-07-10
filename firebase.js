@@ -73,9 +73,10 @@ alert("Documents: " + querySnapshot.size);
 console.log(querySnapshot.size);
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
+      alert(JSON.stringify(worker));
     
 
-      const card = `
+      workerGrid.innerHTML += `
 <div class="card">
   <h3>👷 ${worker.category}</h3>
   <p>⭐ ${worker.rating}</p>
