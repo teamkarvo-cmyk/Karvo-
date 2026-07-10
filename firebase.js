@@ -74,13 +74,18 @@ async function loadWorkers() {
       const worker = doc.data();
       alert(JSON.stringify(worker));
 
-      workerGrid.innerHTML += `
-        <div class="card">
-          <h3>👷 ${worker.category}</h3>
-          <p>⭐ ${worker.rating}</p>
-          <p>📍 ${worker.City}</p>
-          <p>✔ Verified</p>
-          <h3>${worker.test}</h3>
+      const card = `
+<div class="card">
+  <h3>👷 ${worker.category}</h3>
+  <p>⭐ ${worker.rating}</p>
+  <p>📍 ${worker.City}</p>
+  <p>✔ Verified</p>
+</div>
+`;
+
+console.log(card);
+
+workerGrid.innerHTML += card;
 
           <div class="card-buttons">
             <a href="worker.html" class="view-btn">View Profile</a>
