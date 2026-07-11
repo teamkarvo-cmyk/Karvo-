@@ -67,11 +67,11 @@ if (workerGrid) {
 
 async function loadWorkers() {
   try {
-  const querySnapshot = await getDocs(collection(db, "workers"));
+    const querySnapshot = await getDocs(collection(db, "workers"));
     workerGrid.innerHTML = "";
 
-      console.log(worker);
-    
+    querySnapshot.forEach((doc) => {
+      const worker = doc.data();
 
       const card = `
 <div class="card">
@@ -82,17 +82,14 @@ async function loadWorkers() {
 
   <div class="card-buttons">
     <a href="worker.html" class="view-btn">View Profile</a>
-    <button>Call</button>
+    <button onclick="window.location.href='tel:${worker.Phone}'">Call</button>
   </div>
 </div>
 `;
 
-console.log(card);
-
-workerGrid.innerHTML += card;
-
-        
+      workerGrid.innerHTML += card;
     });
+
   } catch (error) {
     alert(error.message);
     console.log(error);
