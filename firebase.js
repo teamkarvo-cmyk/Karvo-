@@ -93,5 +93,6 @@ async function loadWorkers() {
   } catch (error) {
     alert(error.message);
     console.log(error);
+    alert("firebase.js loaded");
   }
 }
