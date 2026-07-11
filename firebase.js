@@ -74,13 +74,14 @@ console.log(querySnapshot.size);
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
       alert(JSON.stringify(worker));
+      console.log(worker);
     
 
       const card = `
 <div class="card">
   <h3>👷 ${worker.category}</h3>
   <p>⭐ ${worker.rating}</p>
-  <p>📍 ${worker.City}</p>
+  <p>📍 ${worker.Test}</p>
   <p>✔ Verified</p>
 
   <div class="card-buttons">
