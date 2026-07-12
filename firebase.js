@@ -69,9 +69,15 @@ if (workerGrid) {
 async function loadWorkers() {
   try {
     const querySnapshot = await getDocs(collection(db, "workers"));
+
+    alert("Documents = " + querySnapshot.size);
+
     workerGrid.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
+
+      alert(JSON.stringify(doc.data()));
+
       const worker = doc.data();
 
       const card = `
