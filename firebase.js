@@ -61,10 +61,9 @@ if (loginBtn) {
 }
 const workerGrid = document.getElementById("workerGrid");
 
-alert(workerGrid);
 
 if (workerGrid) {
-  alert("loadWorkers start");
+  
   loadWorkers();
   }
 
@@ -73,13 +72,13 @@ async function loadWorkers() {
   try {
     const querySnapshot = await getDocs(collection(db, "Workers"));
 
-    alert("Documents = " + querySnapshot.size);
+    
 
     workerGrid.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
 
-      alert(JSON.stringify(doc.data()));
+      
 
       const worker = doc.data();
 
@@ -103,6 +102,6 @@ async function loadWorkers() {
   } catch (error) {
     alert(error.message);
     console.log(error);
-    alert("firebase.js loaded");
+    
   }
 }
