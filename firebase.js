@@ -71,7 +71,7 @@ if (workerGrid) {
 
 async function loadWorkers() {
   try {
-    const querySnapshot = await getDocs(collection(db, "workers"));
+    const querySnapshot = await getDocs(collection(db, "Workers"));
 
     alert("Documents = " + querySnapshot.size);
 
