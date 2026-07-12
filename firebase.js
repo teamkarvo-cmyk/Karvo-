@@ -61,10 +61,13 @@ if (loginBtn) {
 }
 const workerGrid = document.getElementById("workerGrid");
 
+alert(workerGrid);
+
 if (workerGrid) {
-  console.log("loadWorkers started");
+  alert("loadWorkers start");
   loadWorkers();
-}
+  }
+
 
 async function loadWorkers() {
   try {
