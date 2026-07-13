@@ -87,7 +87,7 @@ async function loadWorkers() {
   <h3>👷 ${worker.Name}</h3>
   <p>🛠 ${worker.category}</p>
   <p>⭐ ${worker.rating}</p>
-  <p>📍 ${worker.City}</p>
+  <p>📍 ${worker.city}</p>
   <p>✔ Verified</p>
 
   <div class="card-buttons">
