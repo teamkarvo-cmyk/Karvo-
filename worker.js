@@ -19,7 +19,7 @@ const db = getFirestore(app);
 
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
-
+alert(window.location.search);
 async function loadWorker() {
   const querySnapshot = await getDocs(collection(db, "Workers"));
 
