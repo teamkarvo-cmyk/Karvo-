@@ -81,6 +81,7 @@ async function loadWorkers() {
       
 
       const worker = doc.data();
+      console.log(worker.Phone);
 
       const card = `
 <div class="card">
