@@ -25,6 +25,8 @@ async function loadWorker() {
 
   querySnapshot.forEach((doc) => {
     const worker = doc.data();
+    alert(phone);
+alert(JSON.stringify(worker));
 console.log(phone);
 console.log(worker);
     if (String(worker.Phone) === String(phone)) {
