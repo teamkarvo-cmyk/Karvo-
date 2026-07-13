@@ -84,9 +84,10 @@ async function loadWorkers() {
 
       const card = `
 <div class="card">
-  <h3>👷 ${worker.category}</h3>
+  <h3>👷 ${worker.Name}</h3>
+  <p>🛠 ${worker.category}</p>
   <p>⭐ ${worker.rating}</p>
-  <p>📍 ${worker.Test}</p>
+  <p>📍 ${worker.City}</p>
   <p>✔ Verified</p>
 
   <div class="card-buttons">
