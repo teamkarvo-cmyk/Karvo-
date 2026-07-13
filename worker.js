@@ -25,7 +25,8 @@ async function loadWorker() {
 
   querySnapshot.forEach((doc) => {
     const worker = doc.data();
-
+console.log(phone);
+console.log(worker);
     if (worker.Phone == phone) {
       document.querySelector("h2").innerText = worker.Name;
       document.querySelector(".rating").innerText =
