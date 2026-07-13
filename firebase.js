@@ -90,7 +90,7 @@ async function loadWorkers() {
   <p>✔ Verified</p>
 
   <div class="card-buttons">
-    <a href="Worker.html" class="view-btn">View Profile</a>
+    <a href="Worker.html?phone=${worker.Phone}" class="view-btn">View Profile</a>
     <button onclick="window.location.href='tel:${worker.Phone}'">Call</button>
   </div>
 </div>
