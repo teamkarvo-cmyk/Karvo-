@@ -27,7 +27,7 @@ async function loadWorker() {
     const worker = doc.data();
 console.log(phone);
 console.log(worker);
-    if (worker.Phone == phone) {
+    if (String(worker.Phone) === String(phone)) {
       document.querySelector("h2").innerText = worker.Name;
       document.querySelector(".rating").innerText =
         "⭐ " + worker.rating + " Rating";
