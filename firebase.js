@@ -90,6 +90,7 @@ async function loadWorkers() {
     workerGrid.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
+      if (!doc.data().Phone) return;
       const worker = doc.data();
 alert(JSON.stringify(worker));
       const card = `
