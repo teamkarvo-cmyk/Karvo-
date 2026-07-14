@@ -91,7 +91,7 @@ async function loadWorkers() {
 
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
-
+alert(JSON.stringify(worker));
       const card = `
 <div class="card">
   <h3>👷 ${worker.Name}</h3>
