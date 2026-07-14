@@ -57,3 +57,60 @@ if (signupBtn) {
     }
   });
   }
+// LOGIN
+const loginBtn = document.getElementById("loginBtn");
+
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Login Successful");
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  });
+}
+
+// LOAD WORKERS
+const workerGrid = document.getElementById("workerGrid");
+
+if (workerGrid) {
+  loadWorkers();
+}
+
+async function loadWorkers() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "Workers"));
+
+    workerGrid.innerHTML = "";
+
+    querySnapshot.forEach((doc) => {
+      const worker = doc.data();
+
+      const card = `
+<div class="card">
+  <h3>👷 ${worker.Name}</h3>
+  <p>🛠 ${worker.category}</p>
+  <p>⭐ ${worker.rating}</p>
+  <p>📍 ${worker.City}</p>
+  <p>✔ Verified</p>
+
+  <div class="card-buttons">
+    <a href="Worker.html?phone=${worker.Phone}" class="view-btn">View Profile</a>
+    <button onclick="window.location.href='tel:${worker.Phone}'">Call</button>
+  </div>
+</div>
+`;
+
+      workerGrid.innerHTML += card;
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+}
