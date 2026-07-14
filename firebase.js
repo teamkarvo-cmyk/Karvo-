@@ -106,7 +106,7 @@ alert(JSON.stringify(worker));
   </div>
 </div>
 `;
-
+alert(card);
       workerGrid.innerHTML += card;
     });
 
