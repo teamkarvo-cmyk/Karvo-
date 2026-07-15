@@ -90,9 +90,12 @@ async function loadWorkers() {
     workerGrid.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
-      if (!doc.data().Phone) return;
-      const worker = doc.data();
-alert(JSON.stringify(worker));
+  const worker = doc.data();
+
+  console.log("DOC ID:", doc.id);
+  console.log("WORKER:", worker);
+  console.log("PHONE:", worker.Phone);
+});
       const card = `
 <div class="card">
   <h3>👷 ${worker.Name}</h3>
