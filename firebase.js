@@ -95,8 +95,8 @@ async function loadWorkers() {
   console.log("DOC ID:", doc.id);
   console.log("WORKER:", worker);
   console.log("PHONE:", worker.Phone);
-});
-      const card = `
+
+  const card = `
 <div class="card">
   <h3>👷 ${worker.Name}</h3>
   <p>🛠 ${worker.category}</p>
@@ -110,11 +110,6 @@ async function loadWorkers() {
   </div>
 </div>
 `;
-alert(card);
-      workerGrid.innerHTML += card;
-    });
 
-  } catch (error) {
-    console.log(error);
-  }
-}
+  workerGrid.innerHTML += card;
+});
