@@ -76,6 +76,7 @@ if (loginBtn) {
   });
 }
 
+
 // LOAD WORKERS
 const workerGrid = document.getElementById("workerGrid");
 
@@ -91,17 +92,8 @@ async function loadWorkers() {
 
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
-      alert(Object.keys(worker));
-      alert(JSON.stringify(worker));
-alert(worker.Phone);
 
-      console.log("DOC ID:", doc.id);
-      console.log("WORKER:", worker);
-      console.log("PHONE:", worker.Phone);
-const link = `Worker.html?phone=${worker.Phone}`;
-alert(link);
-
-const card = `
+      const card = `
 <div class="card">
   <h3>👷 ${worker.Name}</h3>
   <p>🛠 ${worker.category}</p>
@@ -110,8 +102,16 @@ const card = `
   <p>✔ Verified</p>
 
   <div class="card-buttons">
-    <a href="${link}" class="view-btn">View Profile</a>
+    <a href="Worker.html?phone=${worker.Phone}" class="view-btn">View Profile</a>
     <button onclick="window.location.href='tel:${worker.Phone}'">Call</button>
   </div>
 </div>
 `;
+
+      workerGrid.innerHTML += card;
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
+}
