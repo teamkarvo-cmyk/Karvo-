@@ -1,16 +1,18 @@
-alert("NEW FIREBASE.JS LOADED");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
 import {
   getFirestore,
   collection,
-  getDocs,
-  addDoc
+  addDoc,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCbKuhaoqCMrKWbzsGT9Vb3EjFdFjjbyEw",
   authDomain: "karvo-86279.firebaseapp.com",
@@ -23,61 +25,92 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-// SIGNUP
-  const signupBtn = document.getElementById("signupBtn");
+
+const signupBtn = document.getElementById("signupBtn");
 
 if (signupBtn) {
-  signupBtn.addEventListener("click", async () => {
-    try {
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const city = document.getElementById("city").value;
-      const category = document.getElementById("category").value;
-      const experience = Number(document.getElementById("experience").value);
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
 
-      await createUserWithEmailAndPassword(auth, email, password);
+signupBtn.addEventListener("click", async () => {
 
-      await addDoc(collection(db, "Workers"), {
-        Name: name,
-        Phone: phone,
-        City: city,
-        category: category,
-        Experience: experience,
-        rating: 4.9,
-        Verified: true
-      });
+try {
 
-      alert("Account Created Successfully");
-      window.location.href = "login.html";
+const name = document.getElementById("name").value.trim();
 
-    } catch (error) {
-      alert(error.message);
-    }
-  });
-  }
-// LOGIN
-const loginBtn = document.getElementById("loginBtn");
+const phone = document.getElementById("phone").value.trim();
 
-if (loginBtn) {
-  loginBtn.addEventListener("click", () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+const city = document.getElementById("city").value.trim();
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        alert("Login Successful");
-        window.location.href = "index.html";
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  });
+const category = document.getElementById("category").value;
+
+const experience = Number(document.getElementById("experience").value);
+
+const email = document.getElementById("email").value.trim();
+
+const password = document.getElementById("password").value;
+
+await createUserWithEmailAndPassword(auth,email,password);
+
+await addDoc(collection(db,"Workers"),{
+
+Name:name,
+
+Phone:phone,
+
+City:city,
+
+category:category,
+
+Experience:experience,
+
+rating:4.9,
+
+Verified:true
+
+});
+
+alert("Account Created Successfully");
+
+window.location.href="login.html";
+
+}catch(error){
+
+alert(error.message);
+
 }
 
+});
 
+}
+
+const loginBtn=document.getElementById("loginBtn");
+
+if(loginBtn){
+
+loginBtn.addEventListener("click",async()=>{
+
+try{
+
+const email=document.getElementById("email").value.trim();
+
+const password=document.getElementById("password").value;
+
+await signInWithEmailAndPassword(auth,email,password);
+
+window.location.href="index.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+});
+
+}
+// ===============================
 // LOAD WORKERS
+// ===============================
+
 const workerGrid = document.getElementById("workerGrid");
 
 if (workerGrid) {
@@ -85,33 +118,56 @@ if (workerGrid) {
 }
 
 async function loadWorkers() {
+
   try {
+
     const querySnapshot = await getDocs(collection(db, "Workers"));
 
     workerGrid.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
+
       const worker = doc.data();
+
+      const phone = String(worker.Phone || "");
 
       const card = `
 <div class="card">
-  <h3>👷 ${worker.Name}</h3>
-  <p>🛠 ${worker.category}</p>
-  <p>⭐ ${worker.rating}</p>
-  <p>📍 ${worker.City}</p>
-  <p>✔ Verified</p>
 
-  <div class="card-buttons">
-    <a href="Worker.html?phone=${worker.Phone}" class="view-btn">View Profile</a>
-    <button onclick="window.location.href='tel:${worker.Phone}'">Call</button>
-  </div>
+<h3>👷 ${worker.Name}</h3>
+
+<p>🛠 ${worker.category}</p>
+
+<p>⭐ ${worker.rating}</p>
+
+<p>📍 ${worker.City}</p>
+
+<p>✔ Verified</p>
+
+<div class="card-buttons">
+
+<a class="view-btn"
+href="Worker.html?phone=${encodeURIComponent(phone)}">
+View Profile
+</a>
+
+<button onclick="window.location.href='tel:${phone}'">
+Call
+</button>
+
+</div>
+
 </div>
 `;
 
-      workerGrid.innerHTML += card;
+      workerGrid.insertAdjacentHTML("beforeend", card);
+
     });
 
   } catch (error) {
-    console.error(error);
+
+    console.error("Load Worker Error :", error);
+
   }
+
 }
