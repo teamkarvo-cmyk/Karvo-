@@ -92,6 +92,8 @@ async function loadWorkers() {
     querySnapshot.forEach((doc) => {
       const worker = doc.data();
       alert(Object.keys(worker));
+      alert(JSON.stringify(worker));
+alert(worker.Phone);
 
       console.log("DOC ID:", doc.id);
       console.log("WORKER:", worker);
