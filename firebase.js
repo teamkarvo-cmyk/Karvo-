@@ -137,7 +137,7 @@ async function loadWorkers() {
 <h3>👷 ${worker.Name}</h3>
 <p>🛠 ${worker.category}</p>
 <p>⭐ ${worker.rating || "4.9"}</p>
-<p>📍 ${worker["City"]}</p>
+<p>📍 ${worker.City || "Mumbai"}</p>
 
 <p>✔ Verified</p>
 
