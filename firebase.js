@@ -110,14 +110,21 @@ alert(error.message);
 // ===============================
 // LOAD WORKERS
 // ===============================
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
 
+if (searchBtn) {
+  searchBtn.addEventListener("click", () => {
+    loadWorkers(searchInput.value.toLowerCase().trim());
+  });
+}
 const workerGrid = document.getElementById("workerGrid");
 
 if (workerGrid) {
   loadWorkers();
 }
 
-async function loadWorkers() {
+async function loadWorkers(search = "") {
 
   try {
 
