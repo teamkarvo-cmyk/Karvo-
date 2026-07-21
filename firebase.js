@@ -136,6 +136,7 @@ async function loadWorkers(search = "") {
 
       const worker = doc.data();
 const text = `${worker.Name || ""} ${worker.category || ""} ${worker.City || ""}`.toLowerCase();
+  console.log(text, search);    
 if (search && !text.includes(search)) {
   return;
     }
