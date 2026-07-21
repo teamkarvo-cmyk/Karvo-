@@ -135,10 +135,7 @@ async function loadWorkers(search = "") {
     querySnapshot.forEach((doc) => {
 
       const worker = doc.data();
-const text =
-`${worker.Name} ${worker.category} ${worker.City}`
-.toLowerCase();
-
+const text = `${worker.Name || ""} ${worker.category || ""} ${worker.City || ""}`.toLowerCase();
 if (search && !text.includes(search)) {
   return;
     }
