@@ -114,9 +114,16 @@ const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 
 if (searchBtn) {
-  searchBtn.addEventListener("click", () => {
-    loadWorkers(searchInput.value.toLowerCase().trim());
+  searchBtn.onclick = () => {
+    loadWorkers(searchInput.value.trim().toLowerCase());
+  };
+}
+
+if (searchInput) {
+  searchInput.addEventListener("keyup", () => {
+    loadWorkers(searchInput.value.trim().toLowerCase());
   });
+}
 }
 const workerGrid = document.getElementById("workerGrid");
 
