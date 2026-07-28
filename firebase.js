@@ -124,7 +124,7 @@ if (searchInput) {
     loadWorkers(searchInput.value.trim().toLowerCase());
   });
 }
-}
+
 const workerGrid = document.getElementById("workerGrid");
 
 if (workerGrid) {
