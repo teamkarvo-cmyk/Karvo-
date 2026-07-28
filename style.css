@@ -518,3 +518,14 @@ nav a:hover{
 .call-btn:hover{
     background:#fff;
 }
+.search-box{
+  position: relative;
+  z-index: 9999;
+}
+
+#searchInput,
+#searchBtn{
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
+}
